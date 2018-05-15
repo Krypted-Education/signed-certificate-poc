@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <title>EduChain</title>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="assets/dist/css/material.css">
+  <link rel="stylesheet" href="assets/dist/css/base.css">
+  <style>
+    #view-source {
+      position: fixed;
+      display: block;
+      right: 0;
+      bottom: 0;
+      margin-right: 40px;
+      margin-bottom: 40px;
+      z-index: 900;
+    }
+  </style>
+</head>
+
+<body class="mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header>
+        <div class="mdl-layout__header-row">
+          <span class="mdl-layout-title">
+                        <a href="index.html">
+                            <img src="assets/dist/img/logo.png" />
+                        </a>
+                    </span>
+          <div class="mdl-layout-spacer"></div>
+          <nav class="mdl-navigation mdl-layout--large-screen-only">
+            <a class="mdl-navigation__link" href="">Hakkında</a>
+            <a class="mdl-navigation__link" href="">İletişim</a>
+          </nav>
+        </div>
+      </header>
+      <main class="mdl-layout__content">
+        <div class="page-content">
+          <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--12-col">
+              <h4 class="mdl-color-text--white">Yeni Zincir Yükle</h4>
+              <p class="mdl-color-text--white">Lütfen, aşağıdaki bilgileri giriniz.</p>
+              <form action="#" class="block-action">
+                <div class="mdl-textfield mdl-js-textfield">
+                  <input class="mdl-textfield__input" type="text" id="individualName">
+                  <label class="mdl-textfield__label" for="individualName">Adı</label>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield">
+                  <input class="mdl-textfield__input" type="text" id="individualLastName">
+                  <label class="mdl-textfield__label" for="individualName">Soyadı</label>
+                </div>
+                <p class="title">Diploma Taraması</p>
+                <input id="fileInput" name="file" type="file" multiple>
+                <br><br>
+                <a href="asset_searchexisting.html" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored mdl-button--radius">
+                                    Zincire Kaydet
+                                </a>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="assets/dist/js/material.min.js"></script>
+</body>
+
+</html>

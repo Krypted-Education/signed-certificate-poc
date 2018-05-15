@@ -1,0 +1,52 @@
+ html,
+ body {
+   font-family: 'Roboto', 'Helvetica', sans-serif;
+   margin: 0;
+   padding: 0;
+   background: #4a2efd;
+   background: -moz-linear-gradient(45deg, #4a2efd 0%, #3740e2 42%, #3170ee 62%, #338dff 100%);
+   background: -webkit-linear-gradient(45deg, #4a2efd 0%, #3740e2 42%, #3170ee 62%, #338dff 100%);
+   background: linear-gradient(45deg, #4a2efd 0%, #3740e2 42%, #3170ee 62%, #338dff 100%);
+   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4a2efd', endColorstr='#338dff', GradientType=1);
+ }
+
+ .mdl-layout-title img {
+   max-width: 120px;
+ }
+
+ .page-content {
+   margin: 0 auto;
+   text-align: center;
+ }
+
+ .page-content .actions {
+   width: 70%;
+   margin: 0 auto;
+   text-align: center;
+   padding-top: 20%;
+ }
+
+ .mdl-button {
+   text-transform: unset;
+   padding: 0px 15px;
+ }
+
+ .mdl-button--white {
+   background: #fff !important;
+   color: #101010 !important;
+   min-width: 180px !important;
+   height: 40px;
+ }
+
+ .mdl-button--radius {
+   border-radius: 30px;
+ }
+
+ form.block-action {
+   background: #fff;
+   max-width: 400px;
+   padding: 30px 40px;
+   margin: 0 auto;
+   border-radius: 3px;
+   text-align: left;
+ }
