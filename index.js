@@ -12,10 +12,15 @@ app.get('/', function(req, res){
 res.sendFile(__dirname + '/index.html');
 });
 
-app.post('/', function(req, res) {
-var username = req.body.username;
-res.send('<h1>Hello</h1>'+username);
+app.post('/', function(req, res){
+  response = {
+      first_name : req.body.first_name,
+      last_name : req.body.last_name,
+      };
+  console.log(response);
+  res.end(JSON.stringify(response));
 });
+
 app.listen(app.get('port'), () => {
 console.log('Node app is running on port', app.get('port'));
 });
