@@ -13,7 +13,7 @@ app.get('/', (req, res) => res.send(__dirname + '/index.html'));
 app.post('/fileupload', (req, res) => {
 console.log(req.body);
 console.log(req.files);
-res.writeHead(200, {'Content-Type': 'text/plain'});
+res.status(200).json({'Content-Type': 'application/json'});
 res.end('Success\n');
 });
 
