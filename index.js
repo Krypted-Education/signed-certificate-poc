@@ -8,11 +8,14 @@ app.use(bodyParser.json());
 app.set('port', process.env.PORT || 5000);
 
 app.use("/", express.static("static"));
-app.post("/uploadfile", function (req, res) {
-  console.log(req.body.individualName);
-  console.log(req.body.individualLastName);
-  console.log(req.body.fileInput);
+app.get('/', function(req, res){
+res.sendFile(__dirname + '/index.html');
+});
+
+app.post('/', function(req, res) {
+var username = req.body.username;
+res.send('<h1>Hello</h1>'+username);
 });
 app.listen(app.get('port'), () => {
-  console.log('Node app is running on port', app.get('port'));
+console.log('Node app is running on port', app.get('port'));
 });
