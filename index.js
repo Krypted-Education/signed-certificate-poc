@@ -18,7 +18,7 @@ app.post('/fileupload', upload.single('thumbnail'), function (req, res, next) {
   var jsonObject = {
     name: req.body.name,
     surname: req.body.surname,
-    file: new Buffer(fs.readFileSync(req.file.path, 'utf8')),
+    file:req.file.thumbnail,
   };
   console.log(jsonObject);
   res.end('Success\n');
