@@ -4,6 +4,10 @@
   formidable = require('formidable');
   var multer  = require('multer');
   var upload = multer();
+  var Bzz = require('web3-bzz');
+  var bzz = new Bzz('http://localhost:8500');
+// change provider
+bzz.setProvider('http://swarm-gateways.net');
 app = new express(); 
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
@@ -18,12 +22,17 @@ app.post('/fileupload', upload.single('thumbnail'), function (req, res, next) {
   var jsonObject = {
     name: req.body.name,
     surname: req.body.surname,
-    file:req.file.thumbnail,
+    file: req.file,
   };
   console.log(jsonObject);
   res.end('Success\n');
-})
-
+  var dir = {
+    "/jsonObject.txt": {type: "application/json", data: "sample file"},  
+};
+bzz.upload(dir).then(function(hash) {
+    console.log("Uploaded directory. Address:", hash);
+});
+});
 app.listen(app.get('port'), () => {
   console.log('Node app is running on port', app.get('port'));
 });
