@@ -1,16 +1,25 @@
-const { uploadToSwarm } = require('../services/swarm-service');
+const { uploadToSwarm } = require('../services/swarm-service'),
+  { sign } = require('../services/signature-service');
 
 module.exports = app => {
   app.post('/fileupload', (req, res, next) => {
-    const signatureFile = {
-      name: req.body.name,
-      surname: req.body.surname
+    const digitalProfile = {
+      version: '0.1',
+      profile: {
+        name: req.body.name,
+        surname: req.body.surname,
+        issuer: req.body.issuer,
+        date: req.body.date
+      },
+      signature: ''
     };
 
+    digitalProfile.signature = sign(digitalProfile);
+
     const dir = {
-      '/signatureFile.txt': {
+      '/digitalProfile.ked': {
         type: 'application/json',
-        data: JSON.stringify(signatureFile)
+        data: JSON.stringify(digitalProfile)
       }
     };
     uploadToSwarm(dir)
