@@ -1,0 +1,13 @@
+{
+  "window.zoomLevel": 0,
+  "git.enableSmartCommit": true,
+  "editor.autoIndent": false,
+  "editor.tabSize": 2,
+  "prettier.singleQuote": true,
+  "[json]": {
+    "editor.tabSize": 2,
+    "editor.quickSuggestions": {
+      "strings": true
+    }
+  }
+}
