@@ -24,6 +24,9 @@
           .then(function(response) {
             this.isLoading = false;
             if (response && response.body.hash) {
+              if (response.body.hash.indexOf('<head>') > 0) {
+                return this.error();
+              }
               this.hash = response.body.hash;
             } else {
               this.error();
