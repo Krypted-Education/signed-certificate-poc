@@ -9,8 +9,9 @@
       isError: false
     },
     methods: {
-      error: function() {
+      error: function(err) {
         this.isError = true;
+        console.log(err);
       },
       save: function(event) {
         this.hash = false;
@@ -25,15 +26,15 @@
             this.isLoading = false;
             if (response && response.body.hash) {
               if (response.body.hash.indexOf('<head>') > 0) {
-                return this.error();
+                return this.error(response);
               }
               this.hash = response.body.hash;
             } else {
-              this.error();
+              this.error(response);
             }
           }, function(err) {
             this.isLoading = false;
-            this.error();
+            this.error(error);
           });
       }
     }
