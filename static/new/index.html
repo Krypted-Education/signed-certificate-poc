@@ -79,7 +79,7 @@
                     <label class="mdl-textfield__label" for="individualName">Soyadı</label>
                   </div>
                 </div>
-                <a v-on:click="save()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored mdl-button--radius">
+                <a v-on:click="save()" v-show="!isLoading" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored mdl-button--radius">
                   Zincire Kaydet
                 </a>
               </form>
