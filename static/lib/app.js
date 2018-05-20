@@ -15,11 +15,14 @@
       },
       save: function(event) {
         this.hash = false;
+        this.isLoading = true;
+        this.isError = false;
+
         var form = {
           name: this.name,
           lastname: this.lastname
         };
-        this.isLoading = true;
+
         this.$http
           .post('/api/create/certificate', form)
           .then(function(response) {
