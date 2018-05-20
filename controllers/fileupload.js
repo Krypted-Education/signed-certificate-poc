@@ -7,13 +7,13 @@ module.exports = app => {
       profile: {
         name: req.body.name,
         surname: req.body.lastname,
-        issuer: req.body.issuer,
+        issuerSignature: req.body.issuerSignature,
         date: req.body.date
       },
-      signature: ''
+      kryptedSignature: ''
     };
 
-    digitalProfile.signature = sign(digitalProfile);
+    digitalProfile.kryptedSignature = sign(digitalProfile);
 
     const dir = {
       '/digitalProfile.ked': {
