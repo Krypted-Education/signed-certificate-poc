@@ -59,8 +59,11 @@
                   <div class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
                 </div>
                 <div v-show="isError" class="create-new--notification create-new--error">
-                  <p>
+                  <p v-show="!message">
                     Swarm arayüzünde bir hata oluştu ve ne yazık ki çalışmaya devam edemiyorum. Lütfen tekrar deneyin.
+                  </p>
+                  <p v-show="message">
+                    {{message}}
                   </p>
                 </div>
 
@@ -90,6 +93,7 @@
       </main>
     </div>
   </div>
+  <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
   <script src="/assets/dist/js/material.min.js"></script>
   <script src="/lib/app.js"></script>
 </body>
