@@ -13,6 +13,7 @@
         this.isError = true;
       },
       save: function(event) {
+        this.hash = false;
         var form = {
           name: this.name,
           lastname: this.lastname
@@ -22,8 +23,8 @@
           .post('/api/create/certificate', form)
           .then(function(response) {
             this.isLoading = false;
-            if (response && response.hash) {
-              this.hash = response.hash;
+            if (response && response.body.hash) {
+              this.hash = response.body.hash;
             } else {
               this.error();
             }
