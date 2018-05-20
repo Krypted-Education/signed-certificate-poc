@@ -1,17 +1,24 @@
-const Bzz = require('web3-bzz'),
-  bzz = new Bzz('http://localhost:8500');
-// Keep different configurations, for future use.
-bzz.setProvider('https://swarm.blockscan.com/');
-// bzz.setProvider('https://open.swarm-gateways.net/');
+const rp = require('request-promise'),
+  SWARM_GATEWAY = 'https://open.swarm-gateways.net/',
+  BZZ_RAW = 'bzz-raw:/',
+  BZZ = 'bzz:/';
+
+const postOptions = (url, data) => {
+  return {
+    method: 'POST',
+    uri: url,
+    body: data,
+    json: true
+  };
+};
 
 const uploadToSwarm = file =>
   new Promise((resolve, reject) => {
-    return bzz
-      .upload(file)
-      .then(function(hash) {
-        resolve({ hash });
-      })
-      .catch(err => reject(err));
+    rp(postOptions(`${SWARM_GATEWAY}${BZZ_RAW}`, file)).then(hash => {
+      rp(postOptions(`${SWARM_GATEWAY}${BZZ}${hash}/digitalProfile.ked`, file))
+        .then(result => resolve(result))
+        .catch(err => reject(err));
+    }).catch(err => reject(err));
   });
 
 module.exports = {

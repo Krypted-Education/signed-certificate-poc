@@ -23,7 +23,7 @@ module.exports = app => {
     };
     uploadToSwarm(dir)
       .then(result => {
-        return res.status(200).json({ uploadedFile: digitalProfile, hash: result.hash });
+        return res.status(200).json({ uploadedFile: digitalProfile, hash: result });
       })
       .catch(err => {
         return res.status(500).json({ error: err, file: digitalProfile });
