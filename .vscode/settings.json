@@ -4,6 +4,7 @@
   "editor.autoIndent": false,
   "editor.tabSize": 2,
   "prettier.singleQuote": true,
+  "prettier.semi": true,
   "[json]": {
     "editor.tabSize": 2,
     "editor.quickSuggestions": {
