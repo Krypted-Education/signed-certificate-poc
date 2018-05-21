@@ -77,20 +77,68 @@
                     <input class="mdl-textfield__input" type="text" id="individualName" v-model="name">
                     <label class="mdl-textfield__label" for="individualName">Name</label>
                   </div>
+
                   <div class="mdl-textfield mdl-js-textfield">
                     <input class="mdl-textfield__input" type="text" id="individualLastName" v-model="lastname">
                     <label class="mdl-textfield__label" for="individualName">Surname</label>
                   </div>
+
+                  <div class="mdl-textfield mdl-js-textfield">
+                    <input class="mdl-textfield__input" type="text" id="individualGrade" v-model="grade">
+                    <label class="mdl-textfield__label" for="individualGrade">Grade</label>
+                  </div>
+                  <div class="mdl-textfield mdl-js-textfield">
+                    <input class="mdl-textfield__input" type="text" id="individualGrade" v-model="studentNumber">
+                    <label class="mdl-textfield__label" for="individualGrade">Student Number</label>
+                  </div>
+                  <div class="mdl-textfield mdl-js-textfield">
+                    <input class="mdl-textfield__input" type="text" id="individualUniversityName" v-model="universityName">
+                    <label class="mdl-textfield__label" for="individualUniversityName">University Name</label>
+                  </div>
+
+                  <ul class="mdl-list">
+                    GRADES
+                    <li class="mdl-list__item" v-for="item in items">
+                      <span class="mdl-list__item-primary-content">
+                          <!-- <i class="material-icons mdl-list__item-icon">grade</i> -->
+                          {{item.title}} ({{item.grade}})
+                        </span>
+                      <a class="mdl-list__item-secondary-action" href="#" v-on:click="deleteItem(item)"><i class="material-icons">delete</i></a>
+                    </li>
+                  </ul>
+                  <a v-on:click="createNewItem()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-button--radius">
+                    Add new grade
+                  </a>
                 </div>
+
                 <a v-on:click="save()" v-show="!isLoading" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored mdl-button--radius">
                   Create a new diploma
                 </a>
               </form>
             </div>
           </div>
-
         </div>
+        <dialog class="mdl-dialog">
+          <div class="mdl-dialog__title">
+            New Entry
+          </div>
+          <div class="mdl-dialog__content">
+            <div class="mdl-textfield mdl-js-textfield">
+              <input class="mdl-textfield__input" type="text" id="item_title" v-model="item_title">
+              <label class="mdl-textfield__label" for="item_title">Course Name</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield">
+              <input class="mdl-textfield__input" type="text" id="item_grade" v-model="item_grade">
+              <label class="mdl-textfield__label" for="item_grade">Course Grade</label>
+            </div>
+          </div>
+          <div class="mdl-dialog__actions mdl-dialog__actions--full-width">
+            <button type="button" class="mdl-button" v-on:click="saveDialog()">Save</button>
+            <button type="button" class="mdl-button" v-on:click="closeDialog()">Cancel</button>
+          </div>
+        </dialog>
       </main>
+
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
