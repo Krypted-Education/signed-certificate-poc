@@ -8,7 +8,11 @@ module.exports = app => {
         name: req.body.name,
         surname: req.body.lastname,
         issuerSignature: req.body.issuerSignature,
-        date: req.body.date
+        date: Date.now(),
+        items: req.body.items,
+        grade: req.body.grade,
+        studentNumber: req.body.studentNumber,
+        universityName: req.body.universityName,
       },
       kryptedSignature: ''
     };

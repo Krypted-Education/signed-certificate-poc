@@ -11,6 +11,12 @@
     data: {
       name: '',
       lastname: '',
+      grade: '',
+      studentNumber: '',
+      universityName: '',
+      item_title: '',
+      item_grade: '',
+      items: [],
       isLoading: false,
       hash: '',
       isError: false,
@@ -34,15 +40,19 @@
 
         var form = {
           name: this.name,
-          lastname: this.lastname
+          lastname: this.lastname,
+          grade: this.grade,
+          studentNumber: this.studentNumber,
+          universityName: this.universityName,
+          items: this.items
         };
 
         if (typeof web3js !== 'undefined') {
           var currentAddress = web3js.eth.accounts[0];
           if (typeof currentAddress === 'undefined') {
-            return this.error('Lutfen metamask uzerinden parolanizi girip tekrar deneyin');
+            return this.error('Please unlock your Metamask and try again.');
           }
-          var messageToSign = web3js.toHex('My name is ' + form.name + ' ' + form.lastname),
+          var messageToSign = web3js.toHex('My name is ' + form.name + ' ' + form.lastname + '. I have graduated from ' + form.universityName),
             that = this;
           web3js.personal.sign(messageToSign, currentAddress, function(err, result) {
             if (err) {
@@ -69,9 +79,55 @@
               });
           });
         } else {
-          that.error('Metamask kurulu olmali. Yoksa calismaz.');
+          that.error('I need Metamask to be installed in your browser.');
         }
+      },
+      createNewItem: function(event) {
+        var form = document.querySelector('dialog');
+        if (!form.showModal) {
+          dialogPolyfill.registerDialog(form);
+        }
+        form.showModal();
+      },
+      deleteItem: function(item) {
+        var items_list = this.items;
+        this.items.forEach(function(current, index) {
+          if (current.title == item.title) {
+            items_list.splice(index, 1);
+            return false;
+          }
+        });
+      },
+      saveDialog: function() {
+        this.items.push({
+          title: this.item_title,
+          grade: this.item_grade
+        });
+        this.item_title = this.item_grade = undefined;
+        this.closeDialog();
+      },
+      closeDialog: function() {
+        var form = document.querySelector('dialog');
+        form.close();
       }
+    }
+  });
+
+  var view = new Vue({
+    el: '#diploma-view',
+    data: {
+      proofOfDate: '23.02.1985',
+      fullName: 'Fatma Ayseli',
+      gpa: '3.21',
+      items: [
+        { title: 'Maths', grade: 'AA' },
+        { title: 'Physics', grade: 'BA' },
+        { title: 'English', grade: 'CC' },
+        { title: 'History', grade: 'AA' }
+      ]
+    },
+    methods: {
+
     }
   });
 })(Vue);
