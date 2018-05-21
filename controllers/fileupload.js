@@ -7,6 +7,7 @@ module.exports = app => {
       profile: {
         name: req.body.name,
         surname: req.body.lastname,
+        issuer: req.body.issuer,
         issuerSignature: req.body.issuerSignature,
         date: Date.now(),
         items: req.body.items,

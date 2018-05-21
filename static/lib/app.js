@@ -52,8 +52,11 @@
           if (typeof currentAddress === 'undefined') {
             return this.error('Please unlock your Metamask and try again.');
           }
-          var messageToSign = web3js.toHex('My name is ' + form.name + ' ' + form.lastname + '. I have graduated from ' + form.universityName),
+          form.issuer = currentAddress;
+
+          var messageToSign = web3js.toHex(JSON.stringify(form)),
             that = this;
+
           web3js.personal.sign(messageToSign, currentAddress, function(err, result) {
             if (err) {
               return that.error(err);
@@ -61,6 +64,7 @@
             if (result) {
               form.issuerSignature = result;
             }
+
             that.$http
               .post('/api/create/certificate', form)
               .then(function(response) {
