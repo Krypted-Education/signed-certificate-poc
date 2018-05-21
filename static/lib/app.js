@@ -40,7 +40,7 @@
         if (typeof web3js !== 'undefined') {
           var currentAddress = web3js.eth.accounts[0];
           if (typeof currentAddress === 'undefined') {
-            return this.error('Lutfen metamask uzerinden parolanizi girip tekrar deneyin');
+            return this.error('Please unlock your Metamask and try again.');
           }
           var messageToSign = web3js.toHex('My name is ' + form.name + ' ' + form.lastname),
             that = this;
@@ -69,9 +69,27 @@
               });
           });
         } else {
-          that.error('Metamask kurulu olmali. Yoksa calismaz.');
+          that.error('I need Metamask to be installed in your browser.');
         }
       }
+    }
+  });
+
+  var view = new Vue({
+    el: '#diploma-view',
+    data: {
+      proofOfDate: '23.02.1985',
+      fullName: 'Fatma Ayseli',
+      gpa: '3.21',
+      items: [
+        { title: 'Maths', grade: 'AA' },
+        { title: 'Physics', grade: 'BA' },
+        { title: 'English', grade: 'CC' },
+        { title: 'History', grade: 'AA' }
+      ]
+    },
+    methods: {
+
     }
   });
 })(Vue);
