@@ -11,6 +11,13 @@
     data: {
       name: '',
       lastname: '',
+      grade: '',
+      studentNumber: '',
+      universityName: '',
+      item_title: '',
+      item_grade: '',
+      items: [
+      ],
       isLoading: false,
       hash: '',
       isError: false,
@@ -34,7 +41,11 @@
 
         var form = {
           name: this.name,
-          lastname: this.lastname
+          lastname: this.lastname,
+          grade: this.grade,
+          studentNumber: this.studentNumber,
+          universityName: this.universityName,
+          items: this.items
         };
 
         if (typeof web3js !== 'undefined') {
@@ -71,6 +82,34 @@
         } else {
           that.error('I need Metamask to be installed in your browser.');
         }
+      },
+      createNewItem: function(event) {
+        var form = document.querySelector('dialog');
+        if (!form.showModal) {
+          dialogPolyfill.registerDialog(form);
+        }
+        form.showModal();
+      },
+      deleteItem: function(item) {
+        var items_list = this.items;
+        this.items.forEach(function(current, index) {
+          if (current.title == item.title) {
+            items_list.splice(index, 1);
+            return false;
+          }
+        });
+      },
+      saveDialog: function() {
+        this.items.push({
+          title: this.item_title,
+          grade: this.item_grade
+        });
+        this.item_title = this.item_grade = undefined;
+        this.closeDialog();
+      },
+      closeDialog: function() {
+        var form = document.querySelector('dialog');
+        form.close();
       }
     }
   });
