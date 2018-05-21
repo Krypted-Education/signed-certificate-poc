@@ -33,14 +33,14 @@
       <header>
         <div class="mdl-layout__header-row">
           <span class="mdl-layout-title">
-            <a href="/index.html">
+            <a href="/">
               <img src="/assets/dist/img/logo.png" />
             </a>
           </span>
           <div class="mdl-layout-spacer"></div>
           <nav class="mdl-navigation mdl-layout--large-screen-only">
-            <a class="mdl-navigation__link" href="/about">Hakkında</a>
-            <a class="mdl-navigation__link" href="/contact">İletişim</a>
+            <a class="mdl-navigation__link" href="/about">About</a>
+            <a class="mdl-navigation__link" href="/contact">Contact</a>
           </nav>
         </div>
       </header>
@@ -48,19 +48,19 @@
         <div class="page-content">
           <div class="mdl-grid">
             <div class="mdl-cell mdl-cell--12-col">
-              <h4 class="mdl-color-text--white">Yeni Zincir Yükle</h4>
-              <p class="mdl-color-text--white">Lütfen, aşağıdaki bilgileri giriniz.</p>
+              <h4 class="mdl-color-text--white">Create a new diploma</h4>
+              <p class="mdl-color-text--white">Please fill the form to create your own diploma.</p>
 
               <form action="fileupload" method="POST" class="block-action">
                 <div v-show="isLoading" class="create-new--loading">
                   <p>
-                    Dijital sertifikanız merkeziyetsiz veri deposuna yüklenirken lütfen bekleyin. Bu işlem uzun sürebilir...
+                    Please wait for a moment while we're uploading your certificate to the decentralised storage...
                   </p>
                   <div class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
                 </div>
                 <div v-show="isError" class="create-new--notification create-new--error">
                   <p v-show="!message">
-                    Swarm arayüzünde bir hata oluştu ve ne yazık ki çalışmaya devam edemiyorum. Lütfen tekrar deneyin.
+                    There is an exception occured on Swarm gateway. Please try again.
                   </p>
                   <p v-show="message">
                     {{message}}
@@ -69,21 +69,21 @@
 
                 <div v-show="!!hash" class="create-new--notification create-new--info">
                   <p>
-                    <a :href="'https://open.swarm-gateways.net/bzz:/' + hash + '/digitalProfile.ked'">{{hash}}</a> ile dokümaniniz olusturuldu.
+                    Done!! Here's a hash to your document <a :href="'https://open.swarm-gateways.net/bzz:/' + hash + '/digitalProfile.ked'">{{hash}}</a>.
                   </p>
                 </div>
                 <div v-show="!isLoading" class="create-new--form">
                   <div class="mdl-textfield mdl-js-textfield">
                     <input class="mdl-textfield__input" type="text" id="individualName" v-model="name">
-                    <label class="mdl-textfield__label" for="individualName">Adı</label>
+                    <label class="mdl-textfield__label" for="individualName">Name</label>
                   </div>
                   <div class="mdl-textfield mdl-js-textfield">
                     <input class="mdl-textfield__input" type="text" id="individualLastName" v-model="lastname">
-                    <label class="mdl-textfield__label" for="individualName">Soyadı</label>
+                    <label class="mdl-textfield__label" for="individualName">Surname</label>
                   </div>
                 </div>
                 <a v-on:click="save()" v-show="!isLoading" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored mdl-button--radius">
-                  Zincire Kaydet
+                  Create a new diploma
                 </a>
               </form>
             </div>

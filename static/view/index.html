@@ -2,267 +2,235 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <title>EduChain</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <title>EduChain</title>
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="/assets/dist/css/material.css">
-    <link rel="stylesheet" href="/assets/dist/css/base.css">
-    <style>
-        #view-source {
-            position: fixed;
-            display: block;
-            right: 0;
-            bottom: 0;
-            margin-right: 40px;
-            margin-bottom: 40px;
-            z-index: 900;
-        }
-
-        .certificate-card {
-            width: 100%;
-        }
-
-        .diploma-badge {
-            background: -webkit-linear-gradient(135deg, #c921af 30%, #e90d47 100%) !important;
-            background: -o-linear-gradient(135deg, #c921af 30%, #e90d47 100%) !important;
-            background: -moz-linear-gradient(135deg, #c921af 30%, #e90d47 100%) !important;
-            background: linear-gradient(135deg, #c921af 30%, #e90d47 100%) !important;
-            padding: 10px 15px;
-            color: #fff;
-            font-size: 14px;
-            font-weight: 400;
-            margin-top: 10px;
-            -webkit-border-radius: 30px !important;
-            -moz-border-radius: 30px !important;
-            -ms-border-radius: 30px !important;
-            border-radius: 30px !important;
-        }
-
-        .certificate-card .top-contents {
-            background: -webkit-linear-gradient(135deg, #262cca 30%, #2664da 100%) !important;
-            background: -o-linear-gradient(135deg, #262cca 30%, #2664da 100%) !important;
-            background: -moz-linear-gradient(135deg, #262cca 30%, #2664da 100%) !important;
-            background: linear-gradient(135deg, #262cca 30%, #2664da 100%) !important;
-            padding: 15px 10px;
-        }
-
-        .certificate-card .top-contents .mdl-card__title .mdl-card__title-text {
-            font-size: 14px;
-            font-weight: 400;
-            display: block;
-            line-height: 20px;
-            color: #fff;
-        }
-
-        .certificate-card .top-contents .mdl-card__title .date-of-proof {
-            font-size: 12px;
-            font-weight: 400;
-            display: block;
-        }
-
-        .certificate-card .top-contents .student-info {
-            display: table-cell;
-            vertical-align: middle;
-            margin: 0 auto;
-            color: #fff;
-        }
-
-        .certificate-card .top-contents .student-info .picture {
-            float: right;
-            width: 100px;
-            height: 100px;
-            position: absolute;
-            right: 0;
-            margin-top: 15px;
-            top: 80px;
-        }
-
-        .certificate-card .top-contents .student-info .picture img {
-            display: block;
-            vertical-align: middle;
-            margin: 0 0 0 5px;
-            widows: 100%;
-        }
-
-        .certificate-card .top-contents .student-info .name {
-            font-size: 32px;
-            font-weight: 600;
-        }
-
-        .certificate-card .top-contents .student-info .degree {
-            padding-top: 10px;
-        }
-
-        .certificate-card .top-contents .student-info .degree .title {
-            font-weight: 400;
-            color: #829de8;
-        }
-
-        .certificate-card .top-contents .student-info .degree .gpa {
-            font-size: 40px;
-            line-height: 40px;
-            font-weight: 600;
-        }
-
-        .img-rounded {
-            -webkit-border-radius: 50%;
-            -moz-border-radius: 50%;
-            -ms-border-radius: 50%;
-            -o-border-radius: 50%;
-            border-radius: 50%;
-        }
-
-        .taken-lessons {
-            text-align: left;
-            padding: 10px 30px 30px;
-        }
-
-        .taken-lessons h6 {
-            font-weight: 500;
-            color: #101010;
-        }
-
-        .taken-lessons .lessons-list {
-            line-height: 20px;
-            font-size: 14px;
-        }
-
-        .taken-lessons .lessons-list .lesson {
-            border-bottom: 0.07rem dashed #ebedf2;
-            padding-top: 10px;
-            padding-bottom: 5px;
-        }
-
-        .taken-lessons .lessons-list .lesson:first-child {
-            padding-top: 0;
-        }
-
-        .taken-lessons .lessons-list .lesson:last-child {
-            border: none;
-        }
-
-        .text-align-right {
-            text-align: right;
-        }
-
-        .text-align-left {
-            text-align: left;
-        }
-    </style>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="/assets/dist/css/material.css">
+  <link rel="stylesheet" href="/assets/dist/css/base.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.5.0/vue-resource.js"></script>
+  <style>
+    #view-source {
+      position: fixed;
+      display: block;
+      right: 0;
+      bottom: 0;
+      margin-right: 40px;
+      margin-bottom: 40px;
+      z-index: 900;
+    }
+    
+    .certificate-card {
+      width: 100%;
+    }
+    
+    .diploma-badge {
+      background: -webkit-linear-gradient(135deg, #c921af 30%, #e90d47 100%) !important;
+      background: -o-linear-gradient(135deg, #c921af 30%, #e90d47 100%) !important;
+      background: -moz-linear-gradient(135deg, #c921af 30%, #e90d47 100%) !important;
+      background: linear-gradient(135deg, #c921af 30%, #e90d47 100%) !important;
+      padding: 10px 15px;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 400;
+      margin-top: 10px;
+      -webkit-border-radius: 30px !important;
+      -moz-border-radius: 30px !important;
+      -ms-border-radius: 30px !important;
+      border-radius: 30px !important;
+    }
+    
+    .certificate-card .top-contents {
+      background: -webkit-linear-gradient(135deg, #262cca 30%, #2664da 100%) !important;
+      background: -o-linear-gradient(135deg, #262cca 30%, #2664da 100%) !important;
+      background: -moz-linear-gradient(135deg, #262cca 30%, #2664da 100%) !important;
+      background: linear-gradient(135deg, #262cca 30%, #2664da 100%) !important;
+      padding: 15px 10px;
+    }
+    
+    .certificate-card .top-contents .mdl-card__title .mdl-card__title-text {
+      font-size: 14px;
+      font-weight: 400;
+      display: block;
+      line-height: 20px;
+      color: #fff;
+    }
+    
+    .certificate-card .top-contents .mdl-card__title .date-of-proof {
+      font-size: 12px;
+      font-weight: 400;
+      display: block;
+    }
+    
+    .certificate-card .top-contents .student-info {
+      display: table-cell;
+      vertical-align: middle;
+      margin: 0 auto;
+      color: #fff;
+    }
+    
+    .certificate-card .top-contents .student-info .picture {
+      float: right;
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      right: 0;
+      margin-top: 15px;
+      top: 80px;
+    }
+    
+    .certificate-card .top-contents .student-info .picture img {
+      display: block;
+      vertical-align: middle;
+      margin: 0 0 0 5px;
+      widows: 100%;
+    }
+    
+    .certificate-card .top-contents .student-info .name {
+      font-size: 32px;
+      font-weight: 600;
+    }
+    
+    .certificate-card .top-contents .student-info .degree {
+      padding-top: 10px;
+    }
+    
+    .certificate-card .top-contents .student-info .degree .title {
+      font-weight: 400;
+      color: #829de8;
+    }
+    
+    .certificate-card .top-contents .student-info .degree .gpa {
+      font-size: 40px;
+      line-height: 40px;
+      font-weight: 600;
+    }
+    
+    .img-rounded {
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+      -o-border-radius: 50%;
+      border-radius: 50%;
+    }
+    
+    .taken-lessons {
+      text-align: left;
+      padding: 10px 30px 30px;
+    }
+    
+    .taken-lessons h6 {
+      font-weight: 500;
+      color: #101010;
+    }
+    
+    .taken-lessons .lessons-list {
+      line-height: 20px;
+      font-size: 14px;
+    }
+    
+    .taken-lessons .lessons-list .lesson {
+      border-bottom: 0.07rem dashed #ebedf2;
+      padding-top: 10px;
+      padding-bottom: 5px;
+    }
+    
+    .taken-lessons .lessons-list .lesson:first-child {
+      padding-top: 0;
+    }
+    
+    .taken-lessons .lessons-list .lesson:last-child {
+      border: none;
+    }
+    
+    .text-align-right {
+      text-align: right;
+    }
+    
+    .text-align-left {
+      text-align: left;
+    }
+  </style>
 </head>
 
 <body class="mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-            <header>
-                <div class="mdl-layout__header-row">
-                    <span class="mdl-layout-title">
-                        <a href="index.html">
-                            <img src="/assets/dist/img/logo.png" />
-                        </a>
-                    </span>
-                    <div class="mdl-layout-spacer"></div>
-                    <nav class="mdl-navigation mdl-layout--large-screen-only">
-                        <a class="mdl-navigation__link" href="">Hakkında</a>
-                        <a class="mdl-navigation__link" href="">İletişim</a>
-                    </nav>
-                </div>
-            </header>
-            <main class="mdl-layout__content">
-                <div class="page-content">
-                    <div class="certificate">
-                        <div class="mdl-grid">
-                            <div class="mdl-cell mdl-cell--6-col-desktop mdl-cell--3-offset-desktop mdl-cell--8-col-tablet mdl-cell--2-offset-desktop mdl-cell--12-col-phone">
-                                <div class="certificate-card mdl-card mdl-shadow--2dp">
-                                    <div class="top-contents">
-                                        <div class="mdl-card__title">
-                                            <h2 class="mdl-card__title-text text-align-left">
-                                                <strong>krypted</strong> &#183; signature
-                                                <br>
-                                                <span class="date-of-proof">DATE: 15.05.2018</span>
-                                            </h2>
-                                        </div>
-                                        <div class="mdl-card__supporting-text student-info text-align-left">
-                                            <div class="name">
-                                                Fatih Hamurcu
-                                            </div>
-                                            <div class="degree">
-                                                <div class="gpa">3.21</div>
-                                                <div class="title">Ortalama</div>
-                                            </div>
-                                            <div class="picture">
-                                                <img class="img-rounded" src="/assets/dist/img/user.jpg" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="mdl-card__actions mdl-card--border">
-                                        <div class="taken-lessons">
-                                            <h6>DERSLER</h6>
-                                            <div class="lessons-list">
-                                                <div class="mdl-grid mdl-grid--no-spacing lesson">
-                                                    <div class="mdl-cell mdl-cell--10-col-desktop mdl-cell--4-col-tablet mdl-cell--2-col-phone">
-                                                        Veri Yapıları Ve Algoritmalar-II
-
-                                                    </div>
-                                                    <div class="mdl-cell mdl-cell--2-col-desktop mdl-cell--4-col-tablet mdl-cell--2-col-phone text-align-right">
-                                                        CC
-                                                    </div>
-                                                </div>
-                                                <div class="mdl-grid mdl-grid--no-spacing lesson">
-                                                    <div class="mdl-cell mdl-cell--10-col-desktop mdl-cell--4-col-tablet mdl-cell--2-col-phone">
-                                                        BİLGİSAYAR PROGRAMLAMA II
-                                                    </div>
-                                                    <div class="mdl-cell mdl-cell--2-col-desktop mdl-cell--4-col-tablet mdl-cell--2-col-phone text-align-right">
-                                                        AA
-                                                    </div>
-                                                </div>
-                                                <div class="mdl-grid mdl-grid--no-spacing lesson">
-                                                    <div class="mdl-cell mdl-cell--10-col-desktop mdl-cell--4-col-tablet mdl-cell--2-col-phone">
-                                                        Sayısal Tasarım
-                                                    </div>
-                                                    <div class="mdl-cell mdl-cell--2-col-desktop mdl-cell--4-col-tablet mdl-cell--2-col-phone text-align-right">
-                                                        BA
-                                                    </div>
-                                                </div>
-                                                <div class="mdl-grid mdl-grid--no-spacing lesson">
-                                                    <div class="mdl-cell mdl-cell--10-col-desktop mdl-cell--4-col-tablet mdl-cell--2-col-phone">
-                                                        Veritabanı Yönetim Sistemleri
-                                                    </div>
-                                                    <div class="mdl-cell mdl-cell--2-col-desktop mdl-cell--4-col-tablet mdl-cell--2-col-phone text-align-right">
-                                                        CC
-                                                    </div>
-                                                </div>
-                                                <div class="mdl-grid mdl-grid--no-spacing lesson">
-                                                    <div class="mdl-cell mdl-cell--10-col-desktop mdl-cell--4-col-tablet mdl-cell--2-col-phone">
-                                                        Algoritma Analizi
-                                                    </div>
-                                                    <div class="mdl-cell mdl-cell--2-col-desktop mdl-cell--4-col-tablet mdl-cell--2-col-phone text-align-right">
-                                                        BA
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="mdl-card__menu">
-                                        <div class="diploma-badge">DIPLOMA</div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-            </main>
+      <header>
+        <div class="mdl-layout__header-row">
+          <span class="mdl-layout-title">
+                <a href="/">
+                    <img src="/assets/dist/img/logo.png" />
+                </a>
+          </span>
+          <div class="mdl-layout-spacer"></div>
+          <nav class="mdl-navigation mdl-layout--large-screen-only">
+            <a class="mdl-navigation__link" href="/about">About</a>
+            <a class="mdl-navigation__link" href="/contact">Contact</a>
+          </nav>
         </div>
+      </header>
+      <main class="mdl-layout__content" id="diploma-view">
+        <div class="page-content">
+          <div class="certificate">
+            <div class="mdl-grid">
+              <div class="mdl-cell mdl-cell--6-col-desktop mdl-cell--3-offset-desktop mdl-cell--8-col-tablet mdl-cell--2-offset-desktop mdl-cell--12-col-phone">
+                <div class="certificate-card mdl-card mdl-shadow--2dp">
+                  <div class="top-contents">
+                    <div class="mdl-card__title">
+                      <h2 class="mdl-card__title-text text-align-left">
+                        <strong>krypted</strong> &#183; signature
+                        <br>
+                        <span class="date-of-proof">DATE: {{proofOfDate}}</span>
+                      </h2>
+                    </div>
+                    <div class="mdl-card__supporting-text student-info text-align-left">
+                      <div class="name">
+                        {{fullName}}
+                      </div>
+                      <div class="degree">
+                        <div class="gpa">{{gpa}}</div>
+                        <div class="title">Grade</div>
+                      </div>
+                      <div class="picture">
+                        <img class="img-rounded" src="/assets/dist/img/user.jpg" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mdl-card__actions mdl-card--border">
+                    <div class="taken-lessons">
+                      <h6>TRANSCRIPT</h6>
+                      <div class="lessons-list">
+                        <div class="mdl-grid mdl-grid--no-spacing lesson" v-for="item in items">
+                          <div class="mdl-cell mdl-cell--10-col-desktop mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+                            {{item.title}}
+                          </div>
+                          <div class="mdl-cell mdl-cell--2-col-desktop mdl-cell--4-col-tablet mdl-cell--2-col-phone text-align-right">
+                            {{item.grade}}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mdl-card__menu">
+                    <div class="diploma-badge">DIPLOMA</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
     </div>
-    <script src="/assets/dist/js/material.min.js"></script>
+  </div>
+  <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+  <script src="/assets/dist/js/material.min.js"></script>
+  <script src="/lib/app.js"></script>
 </body>
 
 </html>
