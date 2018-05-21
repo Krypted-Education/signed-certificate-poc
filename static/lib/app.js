@@ -16,8 +16,7 @@
       universityName: '',
       item_title: '',
       item_grade: '',
-      items: [
-      ],
+      items: [],
       isLoading: false,
       hash: '',
       isError: false,
@@ -53,7 +52,7 @@
           if (typeof currentAddress === 'undefined') {
             return this.error('Please unlock your Metamask and try again.');
           }
-          var messageToSign = web3js.toHex('My name is ' + form.name + ' ' + form.lastname),
+          var messageToSign = web3js.toHex('My name is ' + form.name + ' ' + form.lastname + '. I have graduated from ' + form.universityName),
             that = this;
           web3js.personal.sign(messageToSign, currentAddress, function(err, result) {
             if (err) {
