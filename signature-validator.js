@@ -18,3 +18,7 @@ const issuerSignature = data.profile.issuerSignature;
 
 const isSignedByTheIssuer = validateEthereumSignature(issuerSignature, issuer, data);
 console.log(`isSignedByTheIssuer: ${isSignedByTheIssuer}`);
+
+module.exports = {
+ isSignedByKrypted,
+};
