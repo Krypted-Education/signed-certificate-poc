@@ -6,6 +6,16 @@
     web3js = undefined;
   }
 
+  function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+      results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+  }
+
   var register = new Vue({
     el: '#registration',
     data: {
@@ -32,6 +42,9 @@
         }
         console.log(err);
       },
+      getSignatureMessage: function(issuer) {
+        return 'I, ' + issuer + ', signing this diploma as the issuer';
+      },
       save: function(event) {
         this.hash = false;
         this.isLoading = true;
@@ -41,10 +54,11 @@
         var form = {
           name: this.name,
           lastname: this.lastname,
+          date: Date.now(),
+          items: this.items,
           grade: this.grade,
           studentNumber: this.studentNumber,
           universityName: this.universityName,
-          items: this.items
         };
 
         if (typeof web3js !== 'undefined') {
@@ -53,8 +67,9 @@
             return this.error('Please unlock your Metamask and try again.');
           }
           form.issuer = currentAddress;
+          form.issuerAuthority = getParameterByName('issuer');
 
-          var messageToSign = web3js.toHex(JSON.stringify(form)),
+          var messageToSign = web3js.toHex(this.getSignatureMessage(form.issuerAuthority)),
             that = this;
 
           web3js.personal.sign(messageToSign, currentAddress, function(err, result) {

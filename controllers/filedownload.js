@@ -6,7 +6,7 @@ module.exports = app => {
     downloadFromSwarm(hash)
       .then(result => {
         const file = result['/digitalProfile.ked'].data;
-
+        // validate the file.
         res.status(200).json(JSON.parse(file));
       })
       .catch(err => res.status(500).json(err));
