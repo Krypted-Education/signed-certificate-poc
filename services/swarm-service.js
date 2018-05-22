@@ -3,37 +3,42 @@ const rp = require('request-promise'),
   BZZ_RAW = 'bzz-raw:/',
   BZZ = 'bzz:/',
   BZZ_IMMUTABLE = 'bzz-immutable:/';
-const postOptions = (url, data) => {
+
+const prepareOptions = (url, data, method) => {
   return {
-    method: 'POST',
+    method: method,
     uri: url,
     body: data,
     json: true
   };
 };
-const getOptions = (url, data) => {
-  return {
-    method: 'GET',
-    uri: url,
-    body: data,
-    json: true
-  };
-};
+
 const uploadToSwarm = file =>
   new Promise((resolve, reject) => {
-    rp(postOptions(`${SWARM_GATEWAY}${BZZ_RAW}`, file)).then(hash => {
-      rp(postOptions(`${SWARM_GATEWAY}${BZZ}${hash}/digitalProfile.ked`, file))
-        .then(result => resolve(result))
-        .catch(err => reject(err));
-    }).catch(err => reject(err));
+    rp(prepareOptions(`${SWARM_GATEWAY}${BZZ_RAW}`, file, 'POST'))
+      .then(hash => {
+        rp(
+          postOptions(`${SWARM_GATEWAY}${BZZ}${hash}/digitalProfile.ked`, file)
+        )
+          .then(result => resolve(result))
+          .catch(err => reject(err));
+      })
+      .catch(err => reject(err));
   });
 
 const downloadFromSwarm = hash =>
   new Promise((resolve, reject) => {
-    rp(getOptions(`${SWARM_GATEWAY}${BZZ_IMMUTABLE}${hash}`, hash)).then(file => {
-     then(result => resolve(result))
-    .catch(err => reject(err));
-    }).catch(err => reject(err));
+    rp(
+      prepareOptions(
+        `${SWARM_GATEWAY}${BZZ_IMMUTABLE}${hash}/digitalProfile.ked`,
+        hash,
+        'GET'
+      )
+    )
+      .then(file => {
+        resolve(file);
+      })
+      .catch(err => reject(err));
   });
 module.exports = {
   uploadToSwarm,
