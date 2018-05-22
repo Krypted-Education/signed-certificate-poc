@@ -146,7 +146,21 @@
       ]
     },
     methods: {
-
+      initialise: function() {
+        debugger;
+        var certificateId = getParameterByName('certificate');
+        var that = this;
+        this.$http.get('/api/get-diploma/' + certificateId).then(function(result) {
+          if (!result || !result.body) {
+            return;
+          }
+          that.proofOfDate = new Date(result.body.date);
+          that.fullName = result.body.name + ' ' + result.body.surname;
+          that.gpa = result.body.grade;
+          that.items = result.body.items;
+        });
+      }
     }
   });
+  view.initialise();
 })(Vue);

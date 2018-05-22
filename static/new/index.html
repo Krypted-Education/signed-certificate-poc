@@ -69,8 +69,12 @@
                 </div>
 
                 <div v-show="!!hash" class="create-new--notification create-new--info">
+                  <h3>DONE!</h3>
                   <p>
-                    Done!! Here's a hash to your document <a :href="'https://open.swarm-gateways.net/bzz:/' + hash + '/digitalProfile.ked'">{{hash}}</a>.
+                    <a :href="'https://open.swarm-gateways.net/bzz:/' + hash + '/digitalProfile.ked'">Here's a link to the SWARM document.</a>
+                  </p>
+                  <p>
+                    <a :href="'/view/?certificate=' + hash">Click here for digital copy of your diploma.</a>
                   </p>
                 </div>
                 <div v-show="!isLoading" class="create-new--form">
