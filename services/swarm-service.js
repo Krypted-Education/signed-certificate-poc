@@ -18,7 +18,7 @@ const uploadToSwarm = file =>
     rp(prepareOptions(`${SWARM_GATEWAY}${BZZ_RAW}`, file, 'POST'))
       .then(hash => {
         rp(
-          postOptions(`${SWARM_GATEWAY}${BZZ}${hash}/digitalProfile.ked`, file)
+          prepareOptions(`${SWARM_GATEWAY}${BZZ}${hash}/digitalProfile.ked`, file, 'POST')
         )
           .then(result => resolve(result))
           .catch(err => reject(err));
