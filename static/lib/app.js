@@ -153,7 +153,7 @@
           if (!result || !result.body) {
             return;
           }
-          that.proofOfDate = moment(result.body.date).format('MMM Do YY');
+          that.proofOfDate = moment(result.body.date).format('MMM Do YYYY');
           that.issuer = result.body.issuer;
           that.issuerAuthority = result.body.issuerAuthority;
           that.signature = result.body.issuerSignature;
