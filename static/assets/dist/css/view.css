@@ -1,0 +1,145 @@
+.certificate-card {
+  width: 100%;
+}
+
+.diploma-badge {
+  background: -webkit-linear-gradient(135deg, #c921af 30%, #e90d47 100%) !important;
+  background: -o-linear-gradient(135deg, #c921af 30%, #e90d47 100%) !important;
+  background: -moz-linear-gradient(135deg, #c921af 30%, #e90d47 100%) !important;
+  background: linear-gradient(135deg, #c921af 30%, #e90d47 100%) !important;
+  padding: 10px 15px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 10px;
+  -webkit-border-radius: 30px !important;
+  -moz-border-radius: 30px !important;
+  -ms-border-radius: 30px !important;
+  border-radius: 30px !important;
+}
+
+.certificate-card .top-contents {
+  background: -webkit-linear-gradient(135deg, #262cca 30%, #2664da 100%) !important;
+  background: -o-linear-gradient(135deg, #262cca 30%, #2664da 100%) !important;
+  background: -moz-linear-gradient(135deg, #262cca 30%, #2664da 100%) !important;
+  background: linear-gradient(135deg, #262cca 30%, #2664da 100%) !important;
+  padding: 15px 10px;
+}
+
+.certificate-card .top-contents .mdl-card__title .mdl-card__title-text {
+  font-size: 14px;
+  font-weight: 400;
+  display: block;
+  line-height: 20px;
+  color: #fff;
+}
+
+.certificate-card .top-contents .mdl-card__title .date-of-proof {
+  font-size: 12px;
+  font-weight: 400;
+  display: block;
+}
+
+.certificate-card .top-contents .student-info {
+  display: table-cell;
+  vertical-align: middle;
+  margin: 0 auto;
+  color: #fff;
+}
+
+.certificate-card .top-contents .student-info .picture {
+  float: right;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  right: 0;
+  margin-top: 15px;
+  padding-right: 22px;
+  top: 80px;
+}
+
+.certificate-card .top-contents .student-info .picture img {
+  display: block;
+  margin: 0 0 0 5px;
+  widows: 100%;
+}
+
+.certificate-card .top-contents .student-info .name {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.certificate-card .top-contents .student-info .degree {
+  padding-top: 10px;
+}
+
+.certificate-card .top-contents .student-info .degree .title {
+  font-weight: 400;
+  color: #829de8;
+}
+
+.certificate-card .top-contents .student-info .degree .gpa {
+  font-size: 40px;
+  line-height: 40px;
+  font-weight: 600;
+}
+
+
+/* .img-rounded {
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+      -o-border-radius: 50%;
+      border-radius: 50%;
+    } */
+
+.qr-code {
+  max-width: 100px;
+  margin: 0;
+}
+
+.taken-lessons {
+  text-align: left;
+  padding: 10px 30px 30px;
+}
+
+.taken-lessons h6 {
+  font-weight: 500;
+  color: #101010;
+}
+
+.taken-lessons .lessons-list {
+  line-height: 20px;
+  font-size: 14px;
+}
+
+.taken-lessons .lessons-list .lesson {
+  border-bottom: 0.07rem dashed #ebedf2;
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+.taken-lessons .lessons-list .lesson:first-child {
+  padding-top: 0;
+}
+
+.taken-lessons .lessons-list .lesson:last-child {
+  border: none;
+}
+
+.text-align-right {
+  text-align: right;
+}
+
+.text-align-left {
+  text-align: left;
+}
+
+.view--issuer-footer {
+  font-size: small;
+  color: #A9A9A9;
+}
+
+.view--issuer-footer--signature {
+  font-size: xx-small;
+}

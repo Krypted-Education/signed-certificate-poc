@@ -1,4 +1,4 @@
-(function(Vue) {
+(function(Vue, moment, document, window) {
   var web3js;
   if (typeof window.web3 !== 'undefined') {
     web3js = new Web3(window.web3.currentProvider);
@@ -135,27 +135,32 @@
   var view = new Vue({
     el: '#diploma-view',
     data: {
-      proofOfDate: '23.02.1985',
-      fullName: 'Fatma Ayseli',
+      proofOfDate: '',
+      fullName: '',
       certificateId: '',
-      gpa: '3.21',
-      items: [
-        { title: 'Maths', grade: 'AA' },
-        { title: 'Physics', grade: 'BA' },
-        { title: 'English', grade: 'CC' },
-        { title: 'History', grade: 'AA' }
-      ]
+      gpa: '',
+      issuer: '',
+      issuerAuthority: '',
+      signature: '',
+      items: []
     },
     methods: {
       initialise: function() {
+        var qrCode = document.getElementById('qr-code');
+        if (!qrCode) {
+          return;
+        }
         this.certificateId = getParameterByName('certificate');
-        document.getElementById('qr-code').src = 'https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=https://krypted-signature.herokuapp.com/view?certificate=' + this.certificateId;
+        qrCode.src = 'https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=https://krypted-signature.herokuapp.com/view?certificate=' + this.certificateId;
         var that = this;
         this.$http.get('/api/get-diploma/' + this.certificateId).then(function(result) {
           if (!result || !result.body) {
             return;
           }
-          that.proofOfDate = new Date(result.body.date);
+          that.proofOfDate = moment(result.body.date).format('MMM Do YYYY');
+          that.issuer = result.body.issuer;
+          that.issuerAuthority = result.body.issuerAuthority;
+          that.signature = result.body.issuerSignature;
           that.fullName = result.body.name + ' ' + result.body.surname;
           that.gpa = result.body.grade;
           that.items = result.body.items;
@@ -164,4 +169,4 @@
     }
   });
   view.initialise();
-})(Vue);
+})(Vue, moment, document, window);

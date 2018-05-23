@@ -1,0 +1,35 @@
+form.block-action {
+  background: #fff;
+  max-width: 400px;
+  padding: 30px 40px;
+  margin: 0 auto;
+  border-radius: 3px;
+  text-align: left;
+}
+
+.create-new--form {
+  margin-bottom: 40px;
+}
+
+.create-new--loading {
+  margin-bottom: 40px;
+}
+
+.create-new--notification {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 16px;
+  border-radius: 2px;
+  color: #212121;
+  margin-bottom: 40px;
+  margin-left: -20px;
+}
+
+.create-new--error {
+  background-color: #FFF9C4;
+}
+
+.create-new--info {
+  background-color: #d9edf7;
+}
