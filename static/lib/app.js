@@ -135,16 +135,11 @@
   var view = new Vue({
     el: '#diploma-view',
     data: {
-      proofOfDate: '23.02.1985',
-      fullName: 'Fatma Ayseli',
+      proofOfDate: '',
+      fullName: '',
       certificateId: '',
-      gpa: '3.21',
-      items: [
-        { title: 'Maths', grade: 'AA' },
-        { title: 'Physics', grade: 'BA' },
-        { title: 'English', grade: 'CC' },
-        { title: 'History', grade: 'AA' }
-      ]
+      gpa: '',
+      items: []
     },
     methods: {
       initialise: function() {
