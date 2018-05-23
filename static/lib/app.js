@@ -146,8 +146,12 @@
     },
     methods: {
       initialise: function() {
+        var qrCode = document.getElementById('qr-code');
+        if (!qrCode) {
+          return;
+        }
         this.certificateId = getParameterByName('certificate');
-        document.getElementById('qr-code').src = 'https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=https://krypted-signature.herokuapp.com/view?certificate=' + this.certificateId;
+        qrCode.src = 'https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=https://krypted-signature.herokuapp.com/view?certificate=' + this.certificateId;
         var that = this;
         this.$http.get('/api/get-diploma/' + this.certificateId).then(function(result) {
           if (!result || !result.body) {
