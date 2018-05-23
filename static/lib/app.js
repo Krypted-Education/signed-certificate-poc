@@ -1,4 +1,4 @@
-(function(Vue) {
+(function(Vue, moment, document, window) {
   var web3js;
   if (typeof window.web3 !== 'undefined') {
     web3js = new Web3(window.web3.currentProvider);
@@ -139,6 +139,9 @@
       fullName: '',
       certificateId: '',
       gpa: '',
+      issuer: '',
+      issuerAuthority: '',
+      signature: '',
       items: []
     },
     methods: {
@@ -150,7 +153,10 @@
           if (!result || !result.body) {
             return;
           }
-          that.proofOfDate = new Date(result.body.date);
+          that.proofOfDate = moment(result.body.date).format('MMM Do YY');
+          that.issuer = result.body.issuer;
+          that.issuerAuthority = result.body.issuerAuthority;
+          that.signature = result.body.issuerSignature;
           that.fullName = result.body.name + ' ' + result.body.surname;
           that.gpa = result.body.grade;
           that.items = result.body.items;
@@ -159,4 +165,4 @@
     }
   });
   view.initialise();
-})(Vue);
+})(Vue, moment, document, window);

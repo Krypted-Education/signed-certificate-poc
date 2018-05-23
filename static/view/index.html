@@ -80,6 +80,15 @@
                   <div class="mdl-card__menu">
                     <div class="diploma-badge">DIPLOMA</div>
                   </div>
+                  <div class="view--issuer-footer">
+                    <span>
+                        This certificate is created by
+                      <a :href="'https://etherscan.io/address/'+ issuer">{{issuerAuthority}}</a> using an Ethereum private key.
+                    </span>
+                    <p class="view--issuer-footer--signature">
+                      Sig: {{signature}}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -89,6 +98,7 @@
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+  <script src="/assets/dist/js/moment.min.js"></script>
   <script src="/assets/dist/js/material.min.js"></script>
   <script src="/lib/app.js"></script>
 </body>

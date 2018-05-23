@@ -134,3 +134,12 @@
 .text-align-left {
   text-align: left;
 }
+
+.view--issuer-footer {
+  font-size: small;
+  color: #A9A9A9;
+}
+
+.view--issuer-footer--signature {
+  font-size: xx-small;
+}
