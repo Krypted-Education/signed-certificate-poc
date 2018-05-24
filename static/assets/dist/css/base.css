@@ -59,3 +59,12 @@
    color: white;
    text-align: center;
  }
+ .disclaimer {
+    font-size: 11px;
+    color: #778dfe;
+    line-height: 16px;
+    bottom: 42px;
+    padding: 10px 20px;
+    width: 100%;
+    position: absolute;
+ }
