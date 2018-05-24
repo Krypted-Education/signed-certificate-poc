@@ -61,7 +61,7 @@
           universityName: this.universityName,
         };
 
-        if (typeof web3js !== 'undefined') {
+        if (web3js) {
           var currentAddress = web3js.eth.accounts[0];
           if (typeof currentAddress === 'undefined') {
             return this.error('Please unlock your Metamask and try again.');
@@ -98,7 +98,7 @@
               });
           });
         } else {
-          that.error('I need Metamask to be installed in your browser.');
+          this.error('In order to sign the certificate, you need Metamask to be installed in your browser.');
         }
       },
       createNewItem: function(event) {
