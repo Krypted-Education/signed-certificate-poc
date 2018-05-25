@@ -51,11 +51,22 @@
    margin-bottom: 40px;
    z-index: 900;
  }
- .copyright-section {
-   position: fixed;
-   left: 0;
-   bottom: 0;
-   width: 100%;
-   color: white;
-   text-align: center;
- }
+
+.mdl-mini-footer {
+   background: none !important;
+   padding-bottom: 10px !important;
+}
+.mdl-mini-footer .mdl-cell .disclaimer {
+    font-size: 11px;
+    color: #778dfe;
+    line-height: 16px;
+    padding: 10px 0px;
+    display: inline-block;
+    text-align: left;
+    text-align-last: left;
+}
+.mdl-mini-footer .mdl-cell .copyright-section img {
+    width: 52px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
