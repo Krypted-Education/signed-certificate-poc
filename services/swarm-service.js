@@ -1,5 +1,5 @@
 const rp = require('request-promise'),
-  SWARM_GATEWAY = 'https://open.swarm-gateways.net/',
+  SWARM_GATEWAY = 'https://swarm-gateways.net/',
   BZZ_RAW = 'bzz-raw:/',
   BZZ = 'bzz:/',
   BZZ_IMMUTABLE = 'bzz-immutable:/';
