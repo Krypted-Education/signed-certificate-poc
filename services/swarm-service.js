@@ -30,7 +30,7 @@ const downloadFromSwarm = hash =>
   new Promise((resolve, reject) => {
     rp(
       prepareOptions(
-        `${SWARM_GATEWAY}${BZZ_IMMUTABLE}${hash}/digitalProfile.ked`,
+        `${SWARM_GATEWAY}${BZZ_RAW}${hash}/digitalProfile.ked`,
         hash,
         'GET'
       )
